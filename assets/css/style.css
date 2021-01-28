@@ -1,0 +1,52 @@
+/*
+#FFFFFF Putih
+#E4F2E5 Putih Kehijauan
+#3C4B3D Hijau Tua
+#B6CEB8 putih kehijauan sediki tua
+#629968 hijau muda
+#146C20 hijau
+*/
+
+body {
+	background-color: #E4F2E5;
+}
+
+/* Homepage Start */
+
+.carousel-homepage {
+	margin-top: 5vw;
+	height: 50vh;
+	overflow: hidden;
+	border-radius: 25px;
+}
+
+.text-ini {
+	color: greenyellow;
+}
+
+
+.row-ngaji {
+	margin-top: 5vw;
+}
+
+.btn-quran-online,
+.btn-iqra-online {
+	color: white;
+	border: none;
+	background-color: #1ca32e;
+	width: 100%;
+	height: 90px;
+	font-size: 40px;
+	font-family: 'montserrat';
+	border-radius: 15px;
+	text-align: center;
+}
+
+.btn-quran-online:hover,
+.btn-iqra-online:hover {
+	color: white;
+	border: none;
+	background-color: #96c79c;
+}
+
+/* Homepage End */
