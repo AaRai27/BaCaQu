@@ -37,7 +37,8 @@ class ModelAccount extends CI_Model
         return $this->db->get('account')->row_array();
     }
 
-    function get_akun_username($username) {
+    function get_akun_username($username)
+    {
         $this->db->where('username', $username);
         return $this->db->get('account')->row_array();
     }
@@ -54,10 +55,12 @@ class ModelAccount extends CI_Model
         return $this->db->delete('account');
     }
 
+  
     function count_ustadz() {
         $this->db->like('user_id', 'u');
         return $this->db->get('account')->num_rows();
     }
+
 
     function count_santri() {
         $this->db->like('user_id', 's');

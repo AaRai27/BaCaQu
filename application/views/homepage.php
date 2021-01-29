@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row row-ngaji">
         <div class="col-md-6 col-12 mb-2">
-            <a href="<?= base_url('report/read_quran') ?>" type="button" class="btn btn-light btn-quran-online p-2"><img src="<?= base_url('assets/images/homepage/quran-btn.png') ?>" height="40px"> Qur'an Online</a>
+            <a href="<?= base_url('report/read_quran/0') ?>" type="button" class="btn btn-light btn-quran-online p-2"><img src="<?= base_url('assets/images/homepage/quran-btn.png') ?>" height="40px"> Qur'an Online</a>
         </div>
         <!-- <div class="col-2"></div> -->
         <div class="col-md-6 col-12">

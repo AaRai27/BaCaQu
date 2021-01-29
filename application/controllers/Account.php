@@ -44,14 +44,16 @@ class Account extends CI_Controller
         redirect(base_url());
     }
 
-    public function daftar_ustadz() {
+    public function daftar_ustadz()
+    {
         $next_id = $this->ModelAccount->count_ustadz() + 1;
         $data = array(
-            'user_id' => 'u'.$next_id,
+            'user_id' => 'u' . $next_id,
             'username' => $this->input->post('username', true),
             'password' => $this->input->post('password', true),
             'role' => 1
-        );       
+        );
+
         $cek1 = $this->ModelAccount->daftar($data);
 
         $data_ustadz = array(
@@ -70,10 +72,12 @@ class Account extends CI_Controller
         }
     }
 
-    public function daftar_santri() {
+
+    public function daftar_santri()
+    {
         $next_id = $this->ModelAccount->count_santri() + 1;
         $data = array(
-            'user_id' => 's'.$next_id,
+            'user_id' => 's' . $next_id,
             'username' => $this->input->post('username', true),
             'password' => $this->input->post('password', true),
             'role' => 2
@@ -96,6 +100,7 @@ class Account extends CI_Controller
             // register gagal
         }
     }
+
 
     public function update_akun_santri($id_santri) {
         $santri = $this->ModelSantri->get_akun_id($id_santri);
