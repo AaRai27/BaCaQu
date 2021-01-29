@@ -16,9 +16,6 @@ class Report extends CI_Controller
     public function index()
     {
         $this->load->view('templates/header');
-<<<<<<< Updated upstream
-        $this->load->view('ngaji/quran');
-=======
         $this->load->view('homepage');
         $this->load->view('templates/footer');
     }
@@ -78,7 +75,6 @@ class Report extends CI_Controller
 
         $this->load->view('templates/header');
         $this->load->view('ngaji/quran', $data);
->>>>>>> Stashed changes
         $this->load->view('templates/footer');
     }
 }

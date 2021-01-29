@@ -5,8 +5,6 @@ $(window).scroll(function () {
 		$('#navbar-utama').removeClass('main-navbar');
 	}
 });
-<<<<<<< Updated upstream
-=======
 
 
 $(document).ready(function () {
@@ -96,4 +94,3 @@ $(document).ready(function () {
 
 
 });
->>>>>>> Stashed changes

@@ -51,18 +51,10 @@
                     <p class="d-flex justify-content-start text-left terjemahan-ayat" style="font-size: 15px;font-weight: lighter;"><?= $a['id'] ?></p>
                 </div>
             </div>
-<<<<<<< Updated upstream
-            <div class="p-2 w-100 konten-ayat">
-                <p class="d-flex justify-content-end text-right terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang.</p>
-            </div>
-        </div>
-        <div class="col-12 border-bottom">
-=======
         <?php endforeach; ?>
 
 
         <!-- <div class="col-12 border-bottom">
->>>>>>> Stashed changes
             <div class="d-flex bd-highlight">
                 <div class="p-2 flex-shrink-1 bd-highlight">
                     <p class="badge badge-light" style="border: 1px solid black;font-size: 20px;">2</p>
