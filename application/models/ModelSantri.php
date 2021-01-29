@@ -8,7 +8,7 @@
 
         function get_akun_id($id) {
             $this->db->where('id_santri', $id);
-            return $this->db->get('santri');
+            return $this->db->get('santri')->row_array();
         }
 
         function update_akun($id, $data) {
