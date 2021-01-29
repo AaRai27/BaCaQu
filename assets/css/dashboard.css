@@ -1,8 +1,13 @@
 .btn-primary, .greenbe, .progress-bar {
     background: #1ca32e;
+    border: #1ca32e;
+    
     /* kasi hover kalo hover warana lebih mudah */
 }
 
+.btn-primary:hover{
+    background-color: #629968;
+}
 
 body {
     background-color: #E4F2E5;
