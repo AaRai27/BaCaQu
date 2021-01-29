@@ -58,7 +58,7 @@ class Account extends CI_Controller
                 'deskripsi' => $this->input->post('link', true),
                 'telepon' => $this->input->post('telepon', true)
             );
-            $cek2 = $this->ModelSantri->daftar($data_ustadz);
+            $cek2 = $this->ModelUstadz->daftar($data_ustadz);
 
             if ($cek1 and $cek2) {
                 // register sukses (kasih flash data juga boleh)
@@ -88,5 +88,15 @@ class Account extends CI_Controller
                 // register gagal
             }
         }
+    }
+
+    public function hapus_akun_santri($id_santri) {
+        $this->ModelSantri->delete_akun($id_santri);
+        redirect(base_url());
+    }
+
+    public function hapus_akun_ustadz($id_ustadz) {
+        $this->ModelUstadz->delete_akun($id_ustadz);
+        redirect(base_url());
     }
 }

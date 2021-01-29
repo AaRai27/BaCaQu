@@ -16,7 +16,7 @@
             return $this->db->update('santri', $data);
         }
 
-        function delete_akun($$id) {
+        function delete_akun($id) {
             $this->db->where('id_santri',$id);
             return $this->db->delete('santri');
         }
