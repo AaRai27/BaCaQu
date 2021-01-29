@@ -1,6 +1,6 @@
 <?php
 
-    class Laporan extends CI_Model {
+    class ModelLaporan extends CI_Model {
 
         function buat_laporan($data) {
             return $this->db->insert('laporan', $data);
@@ -31,5 +31,3 @@
         }
 
     }
-
-?>
