@@ -14,9 +14,9 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar-utama">
         <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#"><b>BacaQu</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,6 +26,10 @@
                     <a class="nav-link" href="#">Features</a>
                     <a class="nav-link" href="#">Pricing</a>
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <div class="form-inline my-2 my-lg-0 ml-auto">
+                        <a class="btn btn-light mr-2 btn-sign-up" href="#" type="button">Sign Up</a>
+                        <a class="btn btn-light btn-sign-in" href="#" type="button">Sign In</a>
+                    </div>
                 </div>
             </div>
         </div>
