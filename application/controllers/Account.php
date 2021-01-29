@@ -10,7 +10,9 @@ class Account extends CI_Controller
 
     public function index()
     {
-        $this->load->view('view');
+        $this->load->view('templates/header-login');
+        $this->load->view('account/login-regis');
+        $this->load->view('templates/footer-login');
     }
 
     public function login() {
@@ -29,4 +31,5 @@ class Account extends CI_Controller
         $this->session->sess_destroy();
         redirect(base_url());
     }
+
 }
