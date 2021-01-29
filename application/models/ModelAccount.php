@@ -23,9 +23,9 @@ class ModelAccount extends CI_Model
     {
         $this->db->where('username', $username);
         $this->db->where('password', $password);
-        $result = $this->db->get('account');
-        if ($result->num_rows() == 1) {
-            return $result->row();
+        $cek = $this->db->get('account')->row();
+        if ($cek) {
+            return true;
         } else {
             return false;
         }
@@ -47,5 +47,15 @@ class ModelAccount extends CI_Model
     {
         $this->db->where('username', $username);
         return $this->db->delete('account');
+    }
+
+    function count_ustadz() {
+        $this->db->like('user_id', 'u');
+        return $this->db->get('account')->num_rows();
+    }
+
+    function count_santri() {
+        $this->db->like('user_id', 's');
+        return $this->db->get('account')->num_rows();
     }
 }
