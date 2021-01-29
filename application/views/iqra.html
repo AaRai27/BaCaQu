@@ -88,7 +88,7 @@
     
     function back() {
       var i = parseInt(document.querySelector(".entry-title").textContent[0]);
-      if(i<33){
+      if(i>0){
         i--;
         document.getElementById("halaman").innerHTML = i+"/32";
         document.getElementById("imgIqro").src = "../../assets/images/iqro/bagian1/Halaman_("+ i +").jpg";
