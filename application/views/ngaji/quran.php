@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="p-2 w-100 konten-ayat">
-                <p class="d-flex justify-content-end text-right terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang.</p>
+                <p class="d-flex justify-content-start text-left terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Dengan menyebut nama Allah Yang Maha Pemurah lagi Maha Penyayang.</p>
             </div>
         </div>
         <div class="col-12 border-bottom">
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="p-2 w-100 konten-ayat">
-                <p class="d-flex justify-content-end text-right terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Segala puji bagi Allah, Tuhan semesta alam.</p>
+                <p class="d-flex justify-content-start text-left terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Segala puji bagi Allah, Tuhan semesta alam.</p>
             </div>
         </div>
 
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="p-2 w-100 konten-ayat">
-                <p class="d-flex justify-content-end text-right terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Maha Pemurah lagi Maha Penyayang.</p>
+                <p class="d-flex justify-content-start text-left terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Maha Pemurah lagi Maha Penyayang.</p>
             </div>
         </div>
 
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="p-2 w-100 konten-ayat">
-                <p class="d-flex justify-content-end text-right terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Yang menguasai di Hari Pembalasan</p>
+                <p class="d-flex justify-content-start text-left terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Yang menguasai di Hari Pembalasan</p>
             </div>
         </div>
 
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <div class="p-2 w-100 konten-ayat">
-                <p class="d-flex justify-content-end text-right terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Hanya Engkaulah yang kami sembah, dan hanya kepada Engkaulah kami meminta pertolongan.</p>
+                <p class="d-flex justify-content-start text-left terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Hanya Engkaulah yang kami sembah, dan hanya kepada Engkaulah kami meminta pertolongan.</p>
             </div>
         </div>
 
@@ -106,7 +106,7 @@
             </div>
             <div class="p-2 w-100 konten-ayat">
 
-                <p class="d-flex justify-content-end text-right terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Maha Pemurah lagi Maha Penyayang.</p>
+                <p class="d-flex justify-content-start text-left terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">Maha Pemurah lagi Maha Penyayang.</p>
             </div>
         </div>
 
@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class="p-2 w-100 konten-ayat">
-                <p class="d-flex justify-content-end text-right terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">(yaitu) Jalan orang-orang yang telah Engkau beri ni'mat kepada mereka; bukan (jalan) mereka yang dimurkai dan bukan (pula jalan) mereka yang sesat.</p>
+                <p class="d-flex justify-content-start text-left terjemahan-ayat" style="font-size: 15px;font-weight: lighter;">(yaitu) Jalan orang-orang yang telah Engkau beri ni'mat kepada mereka; bukan (jalan) mereka yang dimurkai dan bukan (pula jalan) mereka yang sesat.</p>
             </div>
         </div>
     </div>
