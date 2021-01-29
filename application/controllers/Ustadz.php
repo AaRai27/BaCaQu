@@ -34,3 +34,4 @@ class Ustadz extends CI_Controller
         // }
     }
 }
+

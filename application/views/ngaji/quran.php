@@ -52,8 +52,6 @@
                 </div>
             </div>
         <?php endforeach; ?>
-
-
         <!-- <div class="col-12 border-bottom">
             <div class="d-flex bd-highlight">
                 <div class="p-2 flex-shrink-1 bd-highlight">

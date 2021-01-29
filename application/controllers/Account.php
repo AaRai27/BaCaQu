@@ -53,6 +53,7 @@ class Account extends CI_Controller
             'password' => $this->input->post('password', true),
             'role' => 1
         );
+
         $cek1 = $this->ModelAccount->daftar($data);
 
         $data_ustadz = array(
@@ -70,6 +71,7 @@ class Account extends CI_Controller
             // register gagal
         }
     }
+
 
     public function daftar_santri()
     {
@@ -99,8 +101,8 @@ class Account extends CI_Controller
         }
     }
 
-    public function update_akun_santri($id_santri)
-    {
+
+    public function update_akun_santri($id_santri) {
         $santri = $this->ModelSantri->get_akun_id($id_santri);
         $data = array(
             'nama' => $this->input->post('nama', true),
@@ -116,8 +118,7 @@ class Account extends CI_Controller
         // redirect to profil atau dashboard santri
     }
 
-    public function update_akun_ustadz($id_ustadz)
-    {
+    public function update_akun_ustadz($id_ustadz) {
         $ustadz = $this->ModelUstadz->get_akun_id($id_ustadz);
         $data = array(
             'nama' => $this->input->post('nama', true),
@@ -133,15 +134,13 @@ class Account extends CI_Controller
         // redirect to dashboard ustadz
     }
 
-    public function hapus_akun_santri($id_santri)
-    {
+    public function hapus_akun_santri($id_santri) {
         $this->ModelSantri->delete_akun($id_santri);
         // pake flash data?
         redirect(base_url());
     }
 
-    public function hapus_akun_ustadz($id_ustadz)
-    {
+    public function hapus_akun_ustadz($id_ustadz) {
         $this->ModelUstadz->delete_akun($id_ustadz);
         // pake flash data?
         redirect(base_url());

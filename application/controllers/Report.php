@@ -3,6 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Report extends CI_Controller
 {
+
     function __construct()
     {
         parent::__construct();
@@ -11,6 +12,7 @@ class Report extends CI_Controller
 
         //load the department_model
         $this->load->model('ModelQuran');
+
     }
 
     public function index()
@@ -94,8 +96,8 @@ class Report extends CI_Controller
     //     }
     // }
 
-    public function edit_laporan($id_laporan)
-    {
+
+    public function edit_laporan($id_laporan) {
         $laporan = $this->ModelLaporan->get_laporan_id($id_laporan);
         $data = array(
             'hari_tanggal' => $this->input->post('hari_tanggal', true),
@@ -111,8 +113,8 @@ class Report extends CI_Controller
         }
     }
 
-    public function hapus_laporan($id_laporan)
-    {
+
+    public function hapus_laporan($id_laporan) {
         $this->ModelLaporan->delete_laporan($id_laporan);
         // flash data?
         // redirect or refresh
