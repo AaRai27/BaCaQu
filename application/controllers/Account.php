@@ -25,7 +25,13 @@ class Account extends CI_Controller
         $password = $this->input->post('password', true);
         $masuk = $this->ModelAccount->login($username, $password);
         if ($masuk) {
-            $this->session->set_userdata('username', $username);
+            $row = $this->ModelAccount->get_akun_username($username);
+            $userdata = array(
+                'username' => $username,
+                'id' => $row['user_id'],
+                'logged in' => true
+            );
+            $this->session->set_userdata($userdata);
             redirect('report');
         } else {
             redirect('account');
@@ -107,7 +113,7 @@ class Account extends CI_Controller
         // redirect to profil atau dashboard santri
     }
 
-    public function update_akun_santri($id_ustadz) {
+    public function update_akun_ustadz($id_ustadz) {
         $ustadz = $this->ModelUstadz->get_akun_id($id_ustadz);
         $data = array(
             'nama' => $this->input->post('nama', true),

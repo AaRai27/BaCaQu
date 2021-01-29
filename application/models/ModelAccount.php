@@ -34,7 +34,12 @@ class ModelAccount extends CI_Model
     function get_akun_id($id)
     {
         $this->db->where('user_id', $id);
-        return $this->db->get('account');
+        return $this->db->get('account')->row_array();
+    }
+
+    function get_akun_username($username) {
+        $this->db->where('username', $username);
+        return $this->db->get('account')->row_array();
     }
 
     function update_akun($id, $data)
