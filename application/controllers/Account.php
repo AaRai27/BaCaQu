@@ -3,6 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Account extends CI_Controller
 {
+    function __construct() {
+        parent::__construct();
+        $this->load->model('Account');
+    }
 
     public function index()
     {
@@ -10,8 +14,6 @@ class Account extends CI_Controller
         $this->load->view('account/login-regis');
         $this->load->view('templates/footer-login');
     }
-<<<<<<< Updated upstream
-=======
 
     public function login() {
         $username = $this->input->post('username', true),
@@ -29,8 +31,5 @@ class Account extends CI_Controller
         $this->session->sess_destroy();
         redirect(base_url());
     }
-}
 
-    
->>>>>>> Stashed changes
 }
