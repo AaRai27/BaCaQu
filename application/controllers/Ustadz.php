@@ -11,27 +11,27 @@ class Ustadz extends CI_Controller
 
     public function claim_santri($id_santri)
     {
-        $data = array('id_ustadz' => $this->session->userdata('id'));
-        $cek = $this->ModelSantri->update_akun($id_santri, $data);
-        if ($cek) {
+        // $data = 'id_ustadz' => $this->session->userdata('id');
+        // $cek = $this->ModelSantri->update_akun($id_santri, $data);
+        // if ($cek) {
         // flash data berhasil
         // refresh dashboard
-        } else {
+        // } else {
         // flash data gagal
-        }
+        // }
     }
 
     public function levelup_santri($id_santri)
     {
         $row = $this->ModelSantri->get_akun_id($id_santri);
-        $data = array('level' => $row['level'] + 1);
-        $cek = $this->ModelSantri->update_akun($id_santri, $data);
-        if ($cek) {
+        // $data = 'level' => $row['level'] + 1;
+        // $cek = $this->ModelSantri->update_akun($id_santri, $data);
+        // if ($cek) {
         // flash data berhasil
         // refresh dashboard
-        } else {
+        // } else {
         // flash data gagal
-        }
+        // }
     }
 }
 

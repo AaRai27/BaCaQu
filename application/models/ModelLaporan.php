@@ -1,5 +1,5 @@
  <?php
-class ModelLaporan extends CI_Model
+class Laporan extends CI_Model
 {
 
     function buat_laporan($data)
