@@ -91,6 +91,30 @@ class Account extends CI_Controller
         redirect('account');
     }
 
+    public function daftar() {
+        $role = $this->input->post('role', true);
+        if ($role == 1) {
+            $next_id = 'u'.$this->ModelAccount->count_ustadz() + 1;
+            $role = 1;
+        } else {
+            $next_id = 's'.$this->ModelAccount->count_santri() + 1;
+            $role = 2
+        }
+        $data = array(
+            'user_id' => $next_id,
+            'username' => $this->input->post('username', true),
+            'password' => $this->input->post('password', true),
+            'role' => $role
+        );
+        $cek = $this->ModelAccount->daftar($data);
+        if ($cek) {
+            $this->session->set_flashdata('register', 'sukses');
+        } else {
+            $this->session->set_flashdata('register', 'gagal');
+        }
+        redirect('account/login');
+    }
+
     public function daftar_ustadz()
     {
         $next_id = $this->ModelAccount->count_ustadz() + 1;
@@ -112,10 +136,9 @@ class Account extends CI_Controller
         $cek2 = $this->ModelUstadz->daftar($data_ustadz);
 
         if ($cek1 and $cek2) {
-            // register sukses (kasih flash data juga boleh)
-            // redirect home
+            $this->session->set_flashdata('daftar', 'sukses');
         } else {
-            // register gagal
+            $this->session->set_flashdata('daftar', 'gagal');
         }
     }
 
@@ -141,7 +164,7 @@ class Account extends CI_Controller
         $cek2 = $this->ModelSantri->daftar($data_santri);
 
         if ($cek1 and $cek2) {
-            // register sukses (kasih flash data juga boleh)
+            $this->session->set_flashdata('daftar', 'sukses');
             // redirect home
         } else {
             // register gagal
