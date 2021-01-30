@@ -72,13 +72,13 @@
       <h3 class="pt-3 pb-2">Profile</h3>
       <div class="card border-0 flex-row flex-wrap pb-3">
         <div class="card-header border-0">
-          <img src="../../assets/images/propic.jpg" alt="">
+          <img src="<?= base_url('assets/images/propic.jpg') ?>" alt="">
         </div>
         <div class="card-block pl-2">
-          <h4 class="card-title">Nama : Salman bin Abdulaziz Al Saud</h4>
-          <p>Username : KingSalman</p>
-          <p>Level : SSS</p>
-          <p>Nomor Telepon : +966882317103</p>
+          <h4 class="card-title">Nama : <?= $user['nama'] ?></h4>
+          <p>Username : <?= $this->session->id ?></p>
+          <p>Level : <?= $user['level'] ?></p>
+          <p>Nomor Telepon : <?= $user['telepon'] ?></p>
         </div>
         <div class="ml-auto pr-2 bd-highlight">
           <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -91,10 +91,14 @@
       </div>
     </div>
 
-    <!-- // !enu Jika Belum ada Memiliki Ustad -->
+
+    <?php if ($user['id_ustadz'] == 'empty') { ?>
+    <!-- Menu Jika Belum ada Memiliki Ustad -->
+    
     <div class="container rounded-lg container mt-5 mb-5 shadow" style="background-color: white;">
       <h3 class="text-center p-4" > Harap menghubungin Ustad <br> anda untuk melihat fitur lengkap</h3>
     </div>
+    <?php } else { ?>
 
     <!-- // ! Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -189,36 +193,28 @@
       <table class="table">
         <thead>
           <tr>
+            <th scope="col">Ustadz</th>
             <th scope="col">Tanggal</th>
-            <th scope="col">Bagian</th>
-            <th scope="col">Jumlah Halaman</th>
-            <th scope="col">Nilai</th>
-            <th scope="col">Link Halaman</th>
+            <th scope="col">Terakhir Dibaca</th>
+            <th scope="col">Keterangan</th>
+            <th scope="col">Catatan</th>
           </tr>
         </thead>
         <tbody>
+        <?php foreach ($laporan as $l):
+          $row = $this->db->get_where('ustadz', ['id_ustadz' => $l['id_ustadz']])->row_array();
+          $nama_ustadz = $row['nama'];
+        ?>
           <tr>
-            <td>1-28-2021</td>
-            <td>1</td>
-            <td>22</td>
-            <td>80</td>
-            <td><a type="button" class="btn btn-warning btn-sm">Buka Iqro</a></td>
+            <td><?= $nama_ustadz ?></td>
+            <td><?= $l['hari_tanggal'] ?></td>
+            <td><?= $l['dibaca'] ?></td>
+            <td><?= $l['keterangan'] ?></td>
+            <td><?= $l['catatan'] ?></td>
           </tr>
-          <tr>
-            <td>1-28-2021</td>
-            <td>1</td>
-            <td>22</td>
-            <td>80</td>
-            <td><a type="button" class="btn btn-warning btn-sm">Buka Iqro</a></td>
-          </tr>
-          <tr>
-            <td>1-28-2021</td>
-            <td>1</td>
-            <td>22</td>
-            <td>80</td>
-            <td><a type="button" class="btn btn-warning btn-sm">Buka Iqro</a></td>
-          </tr>
+        <?php endforeach ?>
         </tbody>
       </table>
     </div>
   </div>
+  <?php } ?>

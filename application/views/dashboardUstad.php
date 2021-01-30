@@ -13,7 +13,7 @@
                     <a href="<?= base_url('report/read_quran/1') ?>" type="button" class="btn btn-primary btn-lg btn-block">Al-Qur'an Online</a>
                 </div>
                 <div class="col-md mt-2">
-                    <a type="button" class="btn btn-primary btn-lg btn-block">Iqra' Online</a>
+                    <a href="<?= base_url('report/read_iqra') ?>" type="button" class="btn btn-primary btn-lg btn-block">Iqra' Online</a>
                 </div>
             </div>
         </div>
@@ -232,15 +232,27 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th scope="col">Nama Santri</th>
                                     <th scope="col">Tanggal</th>
-                                    <th scope="col">Bagian</th>
-                                    <th scope="col">Jumlah Halaman</th>
+                                    <th scope="col">Terakhir Dibaca</th>
                                     <th scope="col">Nilai</th>
                                     <th scope="col">Deskripsi</th>
                                     <th scope="col">Link Halaman</th>
                                 </tr>
                             </thead>
                             <tbody>
+
+                            <?php foreach ($laporan as $l):
+                                $row = $this->db->get_where('santri', ['id_santri' => $l['id_santri']])->row_array();
+                                $nama_santri = $row['nama'];
+                            ?>
+                                <tr>
+                                    <td><?= $nama_santri ?></td>
+                                    <td><?= $l['hari_tanggal'] ?></td>
+                                    <td><?= $l['dibaca'] ?></td>
+                                    <td><?= $l['keterangan'] ?></td>
+                                    <td><?= $l['catatan'] ?></td>
+                                    <td><a type="button" class="btn btn-warning btn-sm" href="<?= base_url('report/edit_laporan/'.$l['id_laporan']) ?>">Edit Laporan</a></td>
                                 <tr>
                                     <td>1-28-2021</td>
                                     <td>1</td>
@@ -279,30 +291,19 @@
                                     <th scope="col">Nama</th>
                                     <th scope="col">Level</th>
                                     <th scope="col">Nomor Telepon</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                              <?php foreach($santri as $s): ?>
                                 <tr>
-                                    <td>Afif Raihan</td>
-                                    <td>SSS</td>
-                                    <td>0812364821</td>
+                                    <td><?= $s['nama'] ?></td>
+                                    <td><?= $s['level'] ?></td>
+                                    <td><?= $s['telepon'] ?></td>
+                                    <td><a type="button" class="btn btn-warning btn-sm"
+                                    href="<?= base_url('ustadz/levelup_santri/'.$l['id_santri']) ?>">Level Up</a></td>
                                 </tr>
-                                <tr>
-                                    <td>Afif Raihan</td>
-                                    <td>SSS</td>
-                                    <td>0812364821</td>
-                                </tr>
-                                <tr>
-                                    <td>Afif Raihan</td>
-                                    <td>SSS</td>
-                                    <td>0812364821</td>
-                                </tr>
-                                <tr>
-                                    <td>Afif Raihan</td>
-                                    <td>SSS</td>
-                                    <td>0812364821</td>
-                                </tr>
-
+                              <?php endforeach ?>
                             </tbody>
                         </table>
                     </div>
@@ -310,4 +311,3 @@
             </div>
         </div>
     </div>
-

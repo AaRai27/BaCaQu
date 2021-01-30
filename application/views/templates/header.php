@@ -21,16 +21,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-link" href="#">Features</a>
-                    <a class="nav-link" href="#">Pricing</a>
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    <div class="form-inline my-2 my-lg-0 ml-auto">
-                        <a class="btn btn-light mr-2 btn-sign-up" href="<?= base_url('account') ?>" type="button">Sign Up</a>
-                        <a class="btn btn-light btn-sign-in" href="<?= base_url('account') ?>" type="button">Sign In</a>
+                <div class="form-inline">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </div>
                 </div>
+                <a class="btn btn-light btn-sign-up ml-auto" href="<?= base_url('account') ?>" type="button">Sign In / Sign Up </a>
             </div>
         </div>
     </nav>
