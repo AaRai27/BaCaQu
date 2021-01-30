@@ -6,17 +6,20 @@ class Ustadz extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->model('ModelLaporan');
         $this->load->model('ModelSantri');
         $this->load->model('ModelUstadz');
     }
 
     public function index()
     {
-        $data['user'] = $this->db->get_where('account', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = $this->ModelUstadz->get_akun_id($this->session->userdata('id'));
+        $data['santri'] = $this->ModelSantri->get_all_by_ustadz($this->session->userdata('id'));
+        $data['laporan'] = $this->ModelLaporan->get_laporan_ustadz($this->session->userdsata('id'));
 
         if ($data['user']) {
             $this->load->view('templates/header-dashboard');
-            $this->load->view('dashboardUstad');
+            $this->load->view('dashboardUstad', $data);
             $this->load->view('templates/footer');
         } else {
             redirect('account');
