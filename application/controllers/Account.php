@@ -86,38 +86,11 @@ class Account extends CI_Controller
     {
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('password');
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">You have been logged out</div>');
+        $this->session->set_flashdata('register', '<div class="alert alert-success" role="alert">You have been logged out</div>');
         // redirect('auth');
         redirect('account');
     }
 
-<<<<<<< Updated upstream
-    public function daftar_ustadz()
-    {
-        $next_id = $this->ModelAccount->count_ustadz() + 1;
-        $data = array(
-            'user_id' => 'u' . $next_id,
-            'username' => $this->input->post('username', true),
-            'password' => $this->input->post('password', true),
-            'role' => 1
-        );
-
-        $cek1 = $this->ModelAccount->daftar($data);
-
-        $data_ustadz = array(
-            'id_ustadz' => $data['user_id'],
-            'nama' => $this->input->post('nama', true),
-            'deskripsi' => $this->input->post('link', true),
-            'telepon' => $this->input->post('telepon', true)
-        );
-        $cek2 = $this->ModelUstadz->daftar($data_ustadz);
-
-        if ($cek1 and $cek2) {
-            // register sukses (kasih flash data juga boleh)
-            // redirect home
-        } else {
-            // register gagal
-=======
     public function daftar()
     {
         $this->form_validation->set_rules('username', 'Username', 'required|is_unique[account.username]');
@@ -162,7 +135,6 @@ class Account extends CI_Controller
             $this->session->set_flashdata('register', '<div class="alert alert-danger alert-dismissible fade show" role="alert">Akun Gagal Dibuat<button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button> </div>');
->>>>>>> Stashed changes
         }
         redirect('account');
     }
@@ -195,24 +167,6 @@ class Account extends CI_Controller
     // }
 
 
-<<<<<<< Updated upstream
-        $data_santri = array(
-            'id_santri' => $data['user_id'],
-            'id_ustadz' => '',
-            'nama' => $this->input->post('nama', true),
-            'level' => $this->input->post('level', true),
-            'telepon' => $this->input->post('telepon', true)
-        );
-        $cek2 = $this->ModelSantri->daftar($data_santri);
-
-        if ($cek1 and $cek2) {
-            // register sukses (kasih flash data juga boleh)
-            // redirect home
-        } else {
-            // register gagal
-        }
-    }
-=======
     // public function daftar_santri()
     // {
     //     $next_id = $this->ModelAccount->count_santri() + 1;
@@ -240,7 +194,6 @@ class Account extends CI_Controller
     //         // register gagal
     //     }
     // }
->>>>>>> Stashed changes
 
 
     public function update_akun_santri($id_santri)
