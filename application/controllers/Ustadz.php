@@ -6,7 +6,6 @@ class Ustadz extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('ModelLaporan');
         $this->load->model('ModelSantri');
         $this->load->model('ModelUstadz');
     }
@@ -19,7 +18,7 @@ class Ustadz extends CI_Controller
 
         if ($data['user']) {
             $this->load->view('templates/header-dashboard');
-            $this->load->view('dashboardUstad', $data);
+            $this->load->view('dashboardUstad');
             $this->load->view('templates/footer');
         } else {
             redirect('account');
