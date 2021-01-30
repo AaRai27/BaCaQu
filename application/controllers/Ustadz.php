@@ -9,29 +9,35 @@ class Ustadz extends CI_Controller
         $this->load->model('ModelSantri');
     }
 
+    public function index() {
+        $this->load->view('templates/header-dashboard');
+        $this->load->view('dashboardUstad');
+        $this->load->view('templates/footer');
+    }
+
     public function claim_santri($id_santri)
     {
-        // $data = 'id_ustadz' => $this->session->userdata('id');
-        // $cek = $this->ModelSantri->update_akun($id_santri, $data);
-        // if ($cek) {
-        // flash data berhasil
-        // refresh dashboard
-        // } else {
-        // flash data gagal
-        // }
+        $data = array('id_ustadz' => $this->session->userdata('id'));
+        $cek = $this->ModelSantri->update_akun($id_santri, $data);
+        if ($cek) {
+            $this->session->set_flashdata('claim', 'sukses');
+        } else {
+            $this->session->set_flashdata('claim', 'gagal');
+        }
+        redirect('ustadz', 'refresh');
     }
 
     public function levelup_santri($id_santri)
     {
         $row = $this->ModelSantri->get_akun_id($id_santri);
-        // $data = 'level' => $row['level'] + 1;
-        // $cek = $this->ModelSantri->update_akun($id_santri, $data);
-        // if ($cek) {
-        // flash data berhasil
-        // refresh dashboard
-        // } else {
-        // flash data gagal
-        // }
+        $data = array('level' => $row['level'] + 1);
+        $cek = $this->ModelSantri->update_akun($id_santri, $data);
+        if ($cek) {
+            $this->session->set_flashdata('levelup', 'sukses');
+        } else {
+            $this->session->set_flashdata('levelup', 'gagal');
+        }
+        redirect('ustadz', 'refresh');
     }
 }
 
