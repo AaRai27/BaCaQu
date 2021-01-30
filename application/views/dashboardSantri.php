@@ -1,13 +1,13 @@
 
   <div class="container">
 
-    <!-- ! Button On top -->
+    <!-- // ! Button On top -->
     <div class="container">
       <h2 class="mt-5">Dashboard</h2>
     </div>
 
 
-    <!-- ! Two Main Button -->
+    <!-- // ! Two Main Button -->
     <div class="container">
       <div class="row">
         <div class="col-md mt-2">
@@ -19,7 +19,55 @@
       </div>
     </div>
 
-    <!-- ! Profile -->
+    <!-- // ! Perintah Isi Profile -->
+    <div class="container rounded-lg container mt-5 mb-5 shadow" style="background-color: white;">
+            <div class="p-3">
+                <h1 class="text-center">Perhatian !</h1>
+                <div class="text-center">
+                  <img src="<?= base_url('assets/images/resume.png')?>" class="ml-5 mt-3 mb-3" style="height: 20vh;" alt="">
+                </div>
+                <h5 class="text-center mb-3 pl-5 pr-5">Sebelum mengakses fitur lengkap kami harap melengkapi profile anda terlebih dahulu dengan klik button isi profile dibawah ini</h5>
+                <div class="text-center ">
+                    <a type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#isiProfileModal">Isi Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- // ! Modal isi Profile -->
+        <div class="modal fade" id="isiProfileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Isi Profile</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="<?=  ?>">
+                            <div class="form-group">
+                                <label>Nama</label>
+                                <input class="form-control" name="nama" value="<?=  ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Level</label>
+                                <input class="form-control" name="level" value="<?=  ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Nomor Telepon</label>
+                                <input class="form-control" name="telepon" value="<?=  ?>">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- // ! Profile -->
     <div class="container rounded-lg container mt-5 mb-5 shadow" style="background-color: white;">
       <h3 class="pt-3 pb-2">Profile</h3>
       <div class="card border-0 flex-row flex-wrap pb-3">
@@ -43,14 +91,16 @@
       </div>
     </div>
 
+
     <?php if ($user['id_ustadz'] == 'empty') { ?>
     <!-- Menu Jika Belum ada Memiliki Ustad -->
+    
     <div class="container rounded-lg container mt-5 mb-5 shadow" style="background-color: white;">
       <h3 class="text-center p-4" > Harap menghubungin Ustad <br> anda untuk melihat fitur lengkap</h3>
     </div>
     <?php } else { ?>
 
-    <!-- ! Modal -->
+    <!-- // ! Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -84,12 +134,12 @@
       </div>
     </div>
 
-    <!-- ! Progress -->
+    <!-- // ! Progress -->
     <div class="border rounded-lg container mt-5 mb-5 pb-3 shadow" style="background-color: white;">
       <h3 class="pt-3">Progress Anda</h3>
       <div class="row">
 
-        <!-- ! Progress terakhir -->
+        <!-- // ! Progress terakhir -->
         <div class="col">
           <div class="card border-0">
             <div class="card-body">
@@ -100,7 +150,7 @@
           </div>
         </div>
 
-        <!-- ! Progress Iqro -->
+        <!-- // ! Progress Iqro -->
         <div class="col-md">
           <div class="card border-0">
             <div class="card-body">
