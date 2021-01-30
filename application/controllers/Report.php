@@ -11,6 +11,8 @@ class Report extends CI_Controller
         $this->load->library('pagination');
 
         //load the department_model
+        $this->load->model('ModelLaporan');
+        $this->load->model('ModelSantri');
         $this->load->model('ModelQuran');
     }
 
@@ -79,9 +81,12 @@ class Report extends CI_Controller
     }
 
     public function buat_laporan() {
+        $nama = $this->input->post('nama', true);
+        $row = $this->ModelSantri->get_akun_nama($nama);
+        $id_santri = $row['id_santri'];
         $data = array(
             'id_ustadz' => $this->input->post('id_ustadz', true),
-            'id_santri' => $this->input->post('id_santri', true),
+            'id_santri' => $id_santri,
             'hari_tanggal' => $this->input->post('hari_tanggal', true),
             'dibaca' => $this->input->post('dibaca', true),
             'keterangan' => $this->input->post('keterangan', true);
