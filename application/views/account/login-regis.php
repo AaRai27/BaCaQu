@@ -13,12 +13,12 @@
             <form method="POST" action="<?= base_url('account/login') ?>" class="mx-auto" style="padding: 0 30px 0 30px;">
                 <div class="form-group">
                     <label style="color: #1ca32e;" for="exampleInputEmail1">Email address</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
                     <label style="color: #1ca32e;" for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                 </div>
                 <div class="btn-submit d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary" style="background-color: #1ca32e;">Submit</button>
