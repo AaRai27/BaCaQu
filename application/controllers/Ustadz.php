@@ -11,6 +11,9 @@ class Ustadz extends CI_Controller
 
     public function index()
     {
+        $data['user'] = $this->ModelUstadz->get_akun_id($this->session->userdata('id'));
+        $data['santri'] = $this->ModelSantri->get_all_by_ustadz($this->session->userdata('id'));
+        $data['laporan'] = $this->ModelLaporan->get_laporan_ustadz($this->session->userdata('id'));
         $data['user'] = $this->db->get_where('account', ['username' => $this->session->userdata('username')])->row_array();
 
         if ($data['user']) {
@@ -22,14 +25,33 @@ class Ustadz extends CI_Controller
         }
     }
 
-    public function claim_santri($id_santri)
+    public function set_ustadz()
     {
+        $data_ustadz = array(
+            'id_ustadz' => $this->input->post('id', true),
+            'nama' => $this->input->post('nama', true),
+            'deskripsi' => $this->input->post('link', true),
+            'telepon' => $this->input->post('telepon', true)
+        );
+        $cek = $this->ModelUstadz->daftar($data_ustadz);
+
+        if ($cek) {
+            $this->session->set_flashdata('setting_profil', 'sukses');
+        } else {
+            $this->session->set_flashdata('setting_profil', 'gagal');
+        }
+        redirect('ustadz');
+    }
+
+    public function claim_santri()
+    {
+        $id_santri = $this->input->post('id', true);
         $data = array('id_ustadz' => $this->session->userdata('id'));
         $cek = $this->ModelSantri->update_akun($id_santri, $data);
         if ($cek) {
-            $this->session->set_flashdata('claim', 'sukses');
+            // $this->session->set_flashdata('claim', 'sukses');
         } else {
-            $this->session->set_flashdata('claim', 'gagal');
+            // $this->session->set_flashdata('claim', 'gagal');
         }
         redirect('ustadz', 'refresh');
     }

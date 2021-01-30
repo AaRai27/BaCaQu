@@ -78,6 +78,28 @@ class Report extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function buat_laporan() {
+        // $nama = $this->input->post('nama', true);
+        // $row = $this->ModelSantri->get_akun_nama($nama);
+        // $id_santri = $row['id_santri'];
+        $dibaca = $this->input->post('part1',true).' - '.$this->input->post('part2', true);
+        $data = array(
+            'id_ustadz' => $this->session->id,
+            'id_santri' => $this->input->post('id', true),
+            'hari_tanggal' => htmlspecialchars($this->input->post('tanggal', true)),
+            'dibaca' => $dibaca,
+            'keterangan' => $this->input->post('keterangan', true),
+            'catatan' => $this->input->post('catatan', true)
+        );
+        $cek = $this->ModelLaporan->buat_laporan($data);
+        if ($cek) {
+            // buat laporan sukses
+        } else {
+            // buat laporan gagal
+        }
+        redirect('ustadz');
+    }
+ 
     public function read_iqra()
     {
         // $data['iqra'] = $this->ModelQuran->get_all_iqra();
