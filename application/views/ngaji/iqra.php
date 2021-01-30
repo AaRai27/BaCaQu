@@ -16,9 +16,9 @@
 </style>
 
 <div class="container rounded-lg mt-5 mb-5 pt-5 pb-5 shadow" " style=" background-color: white;">
-  <a href="">
+  <!-- <a href="">
     <img class="ml-4" src="<?= base_url('assets/images/arrow.svg') ?>" style="transform:rotate(180deg);" width="3%" alt="">
-  </a>
+  </a> -->
   <h3 class="text-center mb-5">Bagian 1</h3>
 
   <div id="imgIqro" class="d-flex justify-content-center">

@@ -2,7 +2,11 @@
     <div class="row row-signin">
         <div class="col-md-7 col-12 align-self-center" style="height: 100px;">
             <!-- <img src="<?= base_url('assets/images/homepage/bocah2.png') ?>" width="460px"> -->
+<<<<<<< Updated upstream
             <h1 class="text-center" style="font-size: 60px;font-weight: bold;"><a href="<?= base_url() ?>" style="text-decoration: none;color: #3C4B3D;"></a>BacaQu</h1>
+=======
+            <h1 class="text-center" style="font-size: 60px;font-weight: bold;"><a href="<?= base_url() ?>" style="text-decoration: none;color: #3C4B3D;">BacaQu</a></h1>
+>>>>>>> Stashed changes
         </div>
         <div class="col-md-4 col-12" style="height: 100vh;padding-top: 30vh; background-image: url(<?= base_url('assets/images/pattern9.jpg')?>); background-repeat: repeat;">
             <?= $this->session->flashdata('register'); ?>
