@@ -7,17 +7,14 @@ class Ustadz extends CI_Controller
     {
         parent::__construct();
         $this->load->model('ModelSantri');
+        $this->load->model('ModelUstadz');
     }
 
     public function index()
     {
-<<<<<<< Updated upstream
         $data['user'] = $this->ModelUstadz->get_akun_id($this->session->userdata('id'));
         $data['santri'] = $this->ModelSantri->get_all_by_ustadz($this->session->userdata('id'));
-        $data['laporan'] = $this->ModelLaporan->get_laporan_ustadz($this->session->userdsata('id'));
-=======
-        $data['user'] = $this->db->get_where('account', ['username' => $this->session->userdata('username')])->row_array();
->>>>>>> Stashed changes
+        $data['laporan'] = $this->ModelLaporan->get_laporan_ustadz($this->session->userdata('id'));
 
         if ($data['user']) {
             $this->load->view('templates/header-dashboard');
@@ -26,6 +23,24 @@ class Ustadz extends CI_Controller
         } else {
             redirect('account');
         }
+    }
+
+    public function set_ustadz()
+    {
+        $data_ustadz = array(
+            'id_ustadz' => $this->input->post('id', true),
+            'nama' => $this->input->post('nama', true),
+            'deskripsi' => $this->input->post('link', true),
+            'telepon' => $this->input->post('telepon', true)
+        );
+        $cek = $this->ModelUstadz->daftar($data_ustadz);
+
+        if ($cek) {
+            $this->session->set_flashdata('setting_profil', 'sukses');
+        } else {
+            $this->session->set_flashdata('setting_profil', 'gagal');
+        }
+        redirect('ustadz');
     }
 
     public function claim_santri($id_santri)

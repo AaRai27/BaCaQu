@@ -10,22 +10,16 @@ class Santri extends CI_Controller
     }
 
     public function index() {
-<<<<<<< Updated upstream
         $data['user'] = $this->ModelSantri->get_akun_id($this->session->userdata('id'));
-        $tmp = $data['user']
+        $tmp = $data['user'];
         $data['ustadz'] = $this->ModelUstadz->get_akun_id($tmp['id_ustadz']);
         $data['laporan'] = $this->ModelLaporan->get_laporan_santri($this->session->userdata('id'));
 
-=======
->>>>>>> Stashed changes
         $this->load->view('templates/header-dashboard');
-        // $this->load->view('dashboardUstad');
+        $this->load->view('dashboardSantri',$data);
         $this->load->view('templates/footer');
-<<<<<<< Updated upstream
     }
-=======
-    }
-
+  
     public function set_santri()
     {
         $data_santri = array(
@@ -45,4 +39,4 @@ class Santri extends CI_Controller
         redirect('santri', 'refresh');
     }
 }
->>>>>>> Stashed changes
+
