@@ -13,8 +13,12 @@
     </div>
 </div>
 
+<<<<<<< Updated upstream
 <?php //echo $this->session->userdata('username'); 
 ?>
+=======
+
+>>>>>>> Stashed changes
 <div class="container">
     <div class="row row-ngaji">
         <div class="col-md-6 col-12 mb-2">
