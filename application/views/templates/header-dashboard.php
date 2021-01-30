@@ -28,6 +28,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar-utama">
         <div class="container">
             <a class="navbar-brand" href="<?= base_url() ?>"><b>BacaQu</b></a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,6 +40,7 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     <div class="form-inline my-2 my-lg-0 ml-auto">
                         <a class="btn btn-light btn-sign-in" href="<?= base_url('account/logout') ?>" type="button">Sign out</a>
+
                     </div>
                 </div>
             </div>

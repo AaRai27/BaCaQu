@@ -21,20 +21,6 @@ class Account extends CI_Controller
 
     public function signin()
     {
-<<<<<<< Updated upstream
-        $username = $this->input->post('username', true);
-        $password = $this->input->post('password', true);
-        $masuk = $this->ModelAccount->login($username, $password);
-        if ($masuk) {
-            $row = $this->ModelAccount->get_akun_username($username);
-            $userdata = array(
-                'username' => $username,
-                'id' => $row['user_id'],
-                'logged in' => true
-            );
-            $this->session->set_userdata($userdata);
-            redirect('report');
-=======
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
 
@@ -64,7 +50,6 @@ class Account extends CI_Controller
                 $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Wrong Username/Password</div>');
                 redirect('account');
             }
->>>>>>> Stashed changes
         } else {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">You are not an admin</div>');
             redirect('account');
