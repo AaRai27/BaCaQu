@@ -11,7 +11,7 @@
                     <a href="<?= base_url('report/read_quran/1') ?>" type="button" class="btn btn-primary btn-lg btn-block">Al-Qur'an Online</a>
                 </div>
                 <div class="col-md mt-2">
-                    <a type="button" class="btn btn-primary btn-lg btn-block">Iqra' Online</a>
+                    <a href="<?= base_url('report/read_iqra') ?>" type="button" class="btn btn-primary btn-lg btn-block">Iqra' Online</a>
                 </div>
             </div>
         </div>
@@ -236,4 +236,3 @@
             </div>
         </div>
     </div>
-

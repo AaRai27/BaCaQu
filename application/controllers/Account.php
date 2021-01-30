@@ -14,9 +14,15 @@ class Account extends CI_Controller
 
     public function index()
     {
-        $this->load->view('templates/header-login');
-        $this->load->view('account/login-regis');
-        $this->load->view('templates/footer-login');
+        $data['user'] = $this->db->get_where('account', ['username' => $this->session->userdata('username')])->row_array();
+
+        if (!$data['user']) {
+            $this->load->view('templates/header-login');
+            $this->load->view('account/login-regis');
+            $this->load->view('templates/footer-login');
+        } else {
+            redirect('ustadz');
+        }
     }
 
     public function signin()
