@@ -9,10 +9,17 @@ class Ustadz extends CI_Controller
         $this->load->model('ModelSantri');
     }
 
-    public function index() {
-        $this->load->view('templates/header-dashboard');
-        $this->load->view('dashboardUstad');
-        $this->load->view('templates/footer');
+    public function index()
+    {
+        $data['user'] = $this->db->get_where('account', ['username' => $this->session->userdata('username')])->row_array();
+
+        if ($data['user']) {
+            $this->load->view('templates/header-dashboard');
+            $this->load->view('dashboardUstad');
+            $this->load->view('templates/footer');
+        } else {
+            redirect('account');
+        }
     }
 
     public function claim_santri($id_santri)
@@ -40,4 +47,3 @@ class Ustadz extends CI_Controller
         redirect('ustadz', 'refresh');
     }
 }
-
