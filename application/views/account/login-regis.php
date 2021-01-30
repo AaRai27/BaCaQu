@@ -2,7 +2,7 @@
     <div class="row row-signin">
         <div class="col-md-7 col-12 align-self-center" style="height: 100px;">
             <!-- <img src="<?= base_url('assets/images/homepage/bocah2.png') ?>" width="460px"> -->
-            <h1 class="text-center" style="font-size: 60px;font-weight: bold;">BacaQu</h1>
+            <h1 class="text-center" style="font-size: 60px;font-weight: bold;"><a href="<?= base_url() ?>" style="text-decoration: none;color: #3C4B3D;"></a>BacaQu</h1>
         </div>
         <div class="col-md-4 col-12" style="height: 100vh;background-color: rgba(255, 255, 255, 0.9);;padding-top: 30vh;">
             <?= $this->session->flashdata('register'); ?>
