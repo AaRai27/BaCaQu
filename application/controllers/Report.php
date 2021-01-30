@@ -123,8 +123,8 @@ class Report extends CI_Controller
 
         $config['first_link']       = 'First';
         $config['last_link']        = 'Last';
-        $config['next_link']        = '<div class="col"><a onclick="back()" href=""><img src="' . base_url('assets/images/arrow.svg') . '" width="15px" alt=""></a></div>';
-        $config['prev_link']        = '<div class="col"><a onclick="back()" href=""><img src="' . base_url('assets/images/arrow.svg') . '" style="transform:rotate(180deg);" width="15px" alt=""></a></div>';
+        $config['next_link']        = '<img src="' . base_url('assets/images/arrow.svg') . '" width="15px" alt="">';
+        $config['prev_link']        = '<img src="' . base_url('assets/images/arrow.svg') . '" style="transform:rotate(180deg);" width="15px" alt="">';
         $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
         $config['full_tag_close']   = '</ul></nav></div>';
         $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
@@ -155,9 +155,9 @@ class Report extends CI_Controller
     }
 
 
-
     public function edit_laporan($id_laporan)
     {
+        $laporan = $this->ModelLaporan->get_laporan_id($id_laporan);
         $data = array(
             'hari_tanggal' => $this->input->post('hari_tanggal', true),
             'dibaca' => $this->input->post('dibaca', true),
@@ -170,7 +170,6 @@ class Report extends CI_Controller
         } else {
             // update gagal
         }
-        redirect('ustadz');
     }
 
 
@@ -178,6 +177,6 @@ class Report extends CI_Controller
     {
         $this->ModelLaporan->delete_laporan($id_laporan);
         // flash data?
-        redirect('ustadz');
+        // redirect or refresh
     }
 }
