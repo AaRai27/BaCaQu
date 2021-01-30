@@ -55,15 +55,17 @@ class ModelAccount extends CI_Model
         return $this->db->delete('account');
     }
 
-  
-    function count_ustadz() {
+
+    function count_ustadz()
+    {
         $this->db->like('user_id', 'u');
-        return $this->db->get('account')->num_rows();
+        return $this->db->count_all_results('account');
     }
 
 
-    function count_santri() {
+    function count_santri()
+    {
         $this->db->like('user_id', 's');
-        return $this->db->get('account')->num_rows();
+        return $this->db->count_all_results('account');
     }
 }
