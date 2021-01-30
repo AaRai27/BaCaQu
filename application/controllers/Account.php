@@ -42,7 +42,9 @@ class Account extends CI_Controller
         if ($user) {
             if ($password = $user['password']) { //password_verify($password, $user['password'])
                 $data = [
-                    'username' => $user['username']
+                    'id' => $user['user_id'],
+                    'username' => $user['username'],
+                    'logged_in' => TRUE
                 ];
                 $this->session->set_userdata($data);
                 redirect('ustadz');
@@ -201,7 +203,7 @@ class Account extends CI_Controller
         $santri = $this->ModelSantri->get_akun_id($id_santri);
         $data = array(
             'nama' => $this->input->post('nama', true),
-            'level' => $this->input->post('level', true),
+            // 'level' => $this->input->post('level', true),
             'telepon' => $this->input->post('telepon', true)
         );
         $cek = $this->ModelSantri->update_akun($id_santri, $data);
