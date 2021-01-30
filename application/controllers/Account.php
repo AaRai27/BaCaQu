@@ -40,12 +40,16 @@ class Account extends CI_Controller
         $user = $this->db->get_where('account', ['username' => $username])->row_array();
 
         if ($user) {
-            if ($password = $user['password']) { //password_verify($password, $user['password'])
+            if ($password == $user['password']) { //password_verify($password, $user['password'])
                 $data = [
                     'username' => $user['username']
                 ];
                 $this->session->set_userdata($data);
-                redirect('ustadz');
+                if ($user['role'] == 1) {
+                    redirect('ustadz');
+                } else {
+                    redirect('santri');
+                }
             } else {
                 $this->session->set_flashdata('register', '<div class="alert alert-danger" role="alert">Wrong Username/Password</div>');
                 redirect('account');

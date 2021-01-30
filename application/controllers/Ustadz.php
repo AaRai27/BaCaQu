@@ -14,7 +14,10 @@ class Ustadz extends CI_Controller
         $data['user'] = $this->ModelUstadz->get_akun_id($this->session->userdata('id'));
         $data['santri'] = $this->ModelSantri->get_all_by_ustadz($this->session->userdata('id'));
         $data['laporan'] = $this->ModelLaporan->get_laporan_ustadz($this->session->userdata('id'));
+<<<<<<< Updated upstream
         $data['user'] = $this->db->get_where('account', ['username' => $this->session->userdata('username')])->row_array();
+=======
+>>>>>>> Stashed changes
 
         if ($data['user']) {
             $this->load->view('templates/header-dashboard');
