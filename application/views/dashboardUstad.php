@@ -4,6 +4,8 @@
             <h2 class="mt-5">Dashboard</h2>
         </div>
 
+        <?php echo $this->session->userdata('username'); ?>
+
         <!-- ! Two Main Button -->
         <div class="container">
             <div class="row">
@@ -24,14 +26,10 @@
                     <img src="<?= base_url('assets/images/propic.jpg') ?>" alt="">
                 </div>
                 <div class="card-block pl-2">
-                <h4 class="card-title">Nama : <?= $user['nama'] ?></h4>
-                    <p>Username : <?= $this->session->username ?></p>
-                    <p>Link Meeting : <a href="<?= $user['deskripsi'] ?>"><?= $user['deskripsi'] ?></a></p>
-                    <p>Nomor Telepon : <?= $user['telepon'] ?></p>
-                    <!-- <h4 class="card-title">Nama : Salman bin Abdulaziz Al Saud</h4>
+                    <h4 class="card-title">Nama : Salman bin Abdulaziz Al Saud</h4>
                     <p>Username : KingSalman</p>
                     <p>Link Meeting : <a href="">meet.guugle.com/ixi-gfsa-kdw</a></p>
-                    <p>Nomor Telepon : +966882317103</p> -->
+                    <p>Nomor Telepon : +966882317103</p>
                 </div>
                 <div class="ml-auto pr-2 bd-highlight">
                     <a type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editProfileModal">
@@ -56,24 +54,25 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" action="<?=base_url('account/update_akun_ustadz/').$this->session->id ?>">
+                        <form>
+
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input class="form-control" name="nama" value="<?= $user['nama'] ?>">
+                                <input class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Link Meeting</label>
-                                <input class="form-control" name="link" value="<?= $user['deskripsi'] ?>">
+                                <label>Username</label>
+                                <input class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Nomor Telepon</label>
-                                <input class="form-control" name="telepon" value="<?= $user['telepon'] ?>">
+                                <input class="form-control">
                             </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -90,43 +89,39 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="<?= base_url('report/buat_laporan') ?>" method="POST">
+                        <form>
                             <div class="form-group">
                                 <label>Nama Santri</label>
-                                <select class="form-control" name="id">
-                                <?php foreach ($santri as $s) { ?>
-                                    <option value="<?= $s['id_santri'] ?>"><?= $s['nama'] ?></option>
-                                <?php } ?>
+                                <input class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Bagian</label>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Hari, Tanggal</label>
-                                <input type="date" class="form-control" name="tanggal">
+                                <label>Jumlah Halaman</label>
+                                <input class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Bagian/Juz</label>
-                                <input type="text" class="form-control" name="part1">
-                            </div>
-                            <div class="form-group">
-                                <label>Jumlah Halaman/Surat:Ayat</label>
-                                <input type="text" class="form-control" name="part2">
-                            </div>
-                            <div class="form-group">
-                                <label>Keterangan</label>
-                                <select class="form-control" name="keterangan">
-                                    <option value="Lanjut">Lanjut</option>
-                                    <option value="Ulang">Ulang</option>
-                                </select>
+                                <label>Nilai</label>
+                                <input class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Deskripsi</label>
-                                <input type="text" class="form-control" name="catatan">
+                                <input class="form-control">
                             </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -157,9 +152,9 @@
                 <div class="col-md-12">
                     <h3 class="mt-2" style="text-align: right;">Add Santri</h3>
                     <div>
-                        <form class="form-inline mt-2" method="POST" action="<?= base_url('ustadz/claim_santri') ?>">
+                        <form class="form-inline mt-2">
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Id Santri" name="id">
+                                <input class="form-control" type="text" placeholder="Id Santri">
                             </div>
                             <button type="Add" class="btn btn-primary">Add</button>
                         </form>
@@ -189,23 +184,39 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Tanggal</th>
-                                    <th scope="col">Terakhir Dibaca</th>
-                                    <!-- <th scope="col">Jumlah Halaman</th> -->
+                                    <th scope="col">Bagian</th>
+                                    <th scope="col">Jumlah Halaman</th>
                                     <th scope="col">Nilai</th>
                                     <th scope="col">Deskripsi</th>
-                                    <th scope="col">Aksi</th>
+                                    <th scope="col">Link Halaman</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($laporan as $l) : ?>
                                 <tr>
-                                    <td><?= $l['hari_tanggal'] ?></td>
-                                    <td><?= $l['dibaca'] ?></td>
-                                    <td><?= $l['keterangan'] ?></td>
-                                    <td><?= $l['catatan'] ?></td>
-                                    <td><a type="button" class="btn btn-warning btn-sm" href="<?= base_url('report/edit_laporan/'.$l['id_laporan']) ?>">Edit Laporan</a></td>
+                                    <td>1-28-2021</td>
+                                    <td>1</td>
+                                    <td>22</td>
+                                    <td>80</td>
+                                    <td>Aman Gan</td>
+                                    <td><a type="button" class="btn btn-warning btn-sm">Buka Iqro</a></td>
                                 </tr>
-                            <?php endforeach ?>
+                                <tr>
+                                    <td>1-28-2021</td>
+                                    <td>1</td>
+                                    <td>22</td>
+                                    <td>80</td>
+                                    <td>Aman Gan</td>
+                                    <td><a type="button" class="btn btn-warning btn-sm">Buka Iqro</a></td>
+                                </tr>
+                                <tr>
+                                    <td>1-28-2021</td>
+                                    <td>1</td>
+                                    <td>22</td>
+                                    <td>80</td>
+                                    <td>Aman Gan</td>
+                                    <td><a type="button" class="btn btn-warning btn-sm">Buka Iqro</a></td>
+                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -222,13 +233,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($santri as $s): ?>
                                 <tr>
-                                    <td><?= $s['nama'] ?></td>
-                                    <td><?= $s['level'] ?></td>
-                                    <td><?= $s['telepon'] ?></td>
+                                    <td>Afif Raihan</td>
+                                    <td>SSS</td>
+                                    <td>0812364821</td>
                                 </tr>
-                            <?php endforeach ?>
+                                <tr>
+                                    <td>Afif Raihan</td>
+                                    <td>SSS</td>
+                                    <td>0812364821</td>
+                                </tr>
+                                <tr>
+                                    <td>Afif Raihan</td>
+                                    <td>SSS</td>
+                                    <td>0812364821</td>
+                                </tr>
+                                <tr>
+                                    <td>Afif Raihan</td>
+                                    <td>SSS</td>
+                                    <td>0812364821</td>
+                                </tr>
+
                             </tbody>
                         </table>
                     </div>

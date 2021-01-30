@@ -81,16 +81,15 @@ class Report extends CI_Controller
     }
 
     public function buat_laporan() {
-        // $nama = $this->input->post('nama', true);
-        // $row = $this->ModelSantri->get_akun_nama($nama);
-        // $id_santri = $row['id_santri'];
-        $dibaca = $this->input->post('part1',true).' - '.$this->input->post('part2', true);
+        $nama = $this->input->post('nama', true);
+        $row = $this->ModelSantri->get_akun_nama($nama);
+        $id_santri = $row['id_santri'];
         $data = array(
-            'id_ustadz' => $this->session->id,
-            'id_santri' => $this->input->post('id', true),
-            'hari_tanggal' => htmlspecialchars($this->input->post('tanggal', true)),
-            'dibaca' => $dibaca,
-            'keterangan' => $this->input->post('keterangan', true),
+            'id_ustadz' => $this->input->post('id_ustadz', true),
+            'id_santri' => $id_santri,
+            'hari_tanggal' => $this->input->post('hari_tanggal', true),
+            'dibaca' => $this->input->post('dibaca', true),
+            'keterangan' => $this->input->post('keterangan', true);
             'catatan' => $this->input->post('catatan', true)
         );
         $cek = $this->ModelLaporan->buat_laporan($data);
