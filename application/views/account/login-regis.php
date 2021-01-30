@@ -10,7 +10,7 @@
                 <a style="font-size: 20px;" href="#" class="badge badge-light text-success to-signup"> <b>Sign Up</b></a>
             </div>
 
-            <form method="POST" action="<?= base_url('account/login') ?>" class="mx-auto" style="padding: 0 30px 0 30px;">
+            <form method="POST" action="<?= base_url('account/signin') ?>" class="mx-auto" style="padding: 0 30px 0 30px;">
                 <div class="form-group">
                     <label style="color: #1ca32e;" for="exampleInputEmail1">Email address</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
@@ -41,21 +41,16 @@
             </div>
             <form class="mx-auto" style="padding: 0 30px 0 30px;">
                 <div class="form-group">
-                    <label style="color: #1ca32e;" for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <label style="color: #1ca32e;" for="username">Username</label>
+                    <input type="text" class="form-control" id="usernam" name="username">
                 </div>
                 <div class="form-group">
-                    <label style="color: #1ca32e;" for="exampleInputPassword1">Username</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1">
+                    <label style="color: #1ca32e;" for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <div class="form-group">
-                    <label style="color: #1ca32e;" for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="form-group">
-                    <label style="color: #1ca32e;" for="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label style="color: #1ca32e;" for="password1">Confirm Password</label>
+                    <input type="password" class="form-control" id="password1" name="password1">
                 </div>
 
                 <div class="btn-submit d-flex justify-content-center">
