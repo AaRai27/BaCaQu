@@ -32,7 +32,13 @@ class Account extends CI_Controller
                 'logged in' => true
             );
             $this->session->set_userdata($userdata);
-            redirect('report');
+            if ($row['role'] == 1) {
+                $this->load->view('templates/header-dashboard');
+                $this->load->view('dashboardUstad');
+                $this->load->view('templates/footer');
+            } else {
+                redirect('report');
+            }
         } else {
             redirect('account');
         }
