@@ -1,6 +1,6 @@
 <?php
 
-    class Santri extends CI_Model {
+    class ModelSantri extends CI_Model {
 
         function daftar($data) {
             return $this->db->insert('santri', $data);
@@ -27,4 +27,3 @@
         }
 
     }
-?>
