@@ -1,6 +1,6 @@
 <?php
 
-    class ModelUstadz extends CI_Model {
+    class Ustadz extends CI_Model {
 
         function daftar($data) {
             return $this->db->insert('ustadz', $data);
