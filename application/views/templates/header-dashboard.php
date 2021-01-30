@@ -7,12 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        style="height: 1vh;" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" style="height: 1vh;" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?= base_url('assets/css/dashboard.css') ?>">
 
-    <title>Dashboard</title>
+    <title class="title">Dashboard</title>
 </head>
 
 <body>
@@ -28,7 +26,8 @@
     -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar-utama">
         <div class="container">
-            <a class="navbar-brand" href="#"><b>BacaQu</b></a>
+            <a class="navbar-brand" href="<?= base_url() ?>"><b>BacaQu</b></a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,7 +38,8 @@
                     <a class="nav-link" href="#">Pricing</a>
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     <div class="form-inline my-2 my-lg-0 ml-auto">
-                        <a class="btn btn-light btn-sign-in" href="" type="button">Sign out</a>
+                        <a class="btn btn-light btn-sign-in" href="<?= base_url('account/logout') ?>" type="button">Sign out</a>
+
                     </div>
                 </div>
             </div>

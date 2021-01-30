@@ -12,7 +12,6 @@ class Report extends CI_Controller
 
         //load the department_model
         $this->load->model('ModelQuran');
-
     }
 
     public function index()
@@ -26,11 +25,11 @@ class Report extends CI_Controller
     {
 
         $data['ayat'] = $this->ModelQuran->get_full_ayat($this->uri->segment(3)); //file_get_contents('https://api.npoint.io/99c279bb173a6e28359c/surat/89');
-        $dataQuran = file_get_contents('https://api.npoint.io/99c279bb173a6e28359c/data');
+        $dataQuran = file_get_contents('http://api.alquran.cloud/v1/surah');
         // $data['surat'] = json_decode($dataSurat, true);
         $data['quran'] = json_decode($dataQuran, true);
         // $data['ayat'] = $data['surat'];
-        $data['surat'] = $data['quran'];
+        $data['surat'] = $data['quran']['data'];
 
         //     //konfigurasi pagination
         $config['base_url'] = base_url('report/read_quran/' . $nomor_surat); //site url
@@ -97,7 +96,8 @@ class Report extends CI_Controller
     // }
 
 
-    public function edit_laporan($id_laporan) {
+    public function edit_laporan($id_laporan)
+    {
         $laporan = $this->ModelLaporan->get_laporan_id($id_laporan);
         $data = array(
             'hari_tanggal' => $this->input->post('hari_tanggal', true),
@@ -114,7 +114,8 @@ class Report extends CI_Controller
     }
 
 
-    public function hapus_laporan($id_laporan) {
+    public function hapus_laporan($id_laporan)
+    {
         $this->ModelLaporan->delete_laporan($id_laporan);
         // flash data?
         // redirect or refresh
