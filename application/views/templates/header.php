@@ -16,7 +16,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar-utama">
         <div class="container">
-            <a class="navbar-brand" href="#"><b>BacaQu</b></a>
+            <a class="navbar-brand" href="<?= base_url() ?>"><b>BacaQu</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
