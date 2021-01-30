@@ -149,9 +149,9 @@ class Report extends CI_Controller
     // }
 
 
+
     public function edit_laporan($id_laporan)
     {
-        $laporan = $this->ModelLaporan->get_laporan_id($id_laporan);
         $data = array(
             'hari_tanggal' => $this->input->post('hari_tanggal', true),
             'dibaca' => $this->input->post('dibaca', true),
@@ -164,6 +164,7 @@ class Report extends CI_Controller
         } else {
             // update gagal
         }
+        redirect('ustadz');
     }
 
 
@@ -171,6 +172,6 @@ class Report extends CI_Controller
     {
         $this->ModelLaporan->delete_laporan($id_laporan);
         // flash data?
-        // redirect or refresh
+        redirect('ustadz');
     }
 }
