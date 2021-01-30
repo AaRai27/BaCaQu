@@ -11,7 +11,12 @@
             return $this->db->get('santri')->row_array();
         }
 
-        function get_akun_by_ustadz($id_ustadz) {
+        function get_akun_nama($nama) {
+            $this->db->where('nama', $nama);
+            return $this->db->get('santri')->row_array();
+        }
+
+        function get_all_by_ustadz($id_ustadz) {
             $this->db->where('id_ustadz', $id_ustadz);
             return $this->db->get('santri')->result_array();
         }
