@@ -6,7 +6,9 @@ class Ustadz extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->model('ModelLaporan');
         $this->load->model('ModelSantri');
+        $this->load->model('ModelUstadz');
     }
 
     public function index()
@@ -14,14 +16,10 @@ class Ustadz extends CI_Controller
         $data['user'] = $this->ModelUstadz->get_akun_id($this->session->userdata('id'));
         $data['santri'] = $this->ModelSantri->get_all_by_ustadz($this->session->userdata('id'));
         $data['laporan'] = $this->ModelLaporan->get_laporan_ustadz($this->session->userdata('id'));
-<<<<<<< Updated upstream
-        $data['user'] = $this->db->get_where('account', ['username' => $this->session->userdata('username')])->row_array();
-=======
->>>>>>> Stashed changes
 
         if ($data['user']) {
             $this->load->view('templates/header-dashboard');
-            $this->load->view('dashboardUstad');
+            $this->load->view('dashboardUstad', $data);
             $this->load->view('templates/footer');
         } else {
             redirect('account');
@@ -46,15 +44,14 @@ class Ustadz extends CI_Controller
         redirect('ustadz');
     }
 
-    public function claim_santri()
+    public function claim_santri($id_santri)
     {
-        $id_santri = $this->input->post('id', true);
         $data = array('id_ustadz' => $this->session->userdata('id'));
         $cek = $this->ModelSantri->update_akun($id_santri, $data);
         if ($cek) {
-            // $this->session->set_flashdata('claim', 'sukses');
+            $this->session->set_flashdata('claim', 'sukses');
         } else {
-            // $this->session->set_flashdata('claim', 'gagal');
+            $this->session->set_flashdata('claim', 'gagal');
         }
         redirect('ustadz', 'refresh');
     }
