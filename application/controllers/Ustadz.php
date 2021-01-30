@@ -15,7 +15,7 @@ class Ustadz extends CI_Controller
     {
         $data['user'] = $this->ModelUstadz->get_akun_id($this->session->userdata('id'));
         $data['santri'] = $this->ModelSantri->get_all_by_ustadz($this->session->userdata('id'));
-        $data['laporan'] = $this->ModelLaporan->get_laporan_ustadz($this->session->userdsata('id'));
+        $data['laporan'] = $this->ModelLaporan->get_laporan_ustadz($this->session->userdata('id'));
 
         if ($data['user']) {
             $this->load->view('templates/header-dashboard');
@@ -44,14 +44,15 @@ class Ustadz extends CI_Controller
         redirect('ustadz');
     }
 
-    public function claim_santri($id_santri)
+    public function claim_santri()
     {
+        $id_santri = $this->input->post('id', true);
         $data = array('id_ustadz' => $this->session->userdata('id'));
         $cek = $this->ModelSantri->update_akun($id_santri, $data);
         if ($cek) {
-            $this->session->set_flashdata('claim', 'sukses');
+            // $this->session->set_flashdata('claim', 'sukses');
         } else {
-            $this->session->set_flashdata('claim', 'gagal');
+            // $this->session->set_flashdata('claim', 'gagal');
         }
         redirect('ustadz', 'refresh');
     }

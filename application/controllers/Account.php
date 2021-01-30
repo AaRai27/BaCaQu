@@ -217,10 +217,9 @@ class Account extends CI_Controller
 
     public function update_akun_ustadz($id_ustadz)
     {
-        $ustadz = $this->ModelUstadz->get_akun_id($id_ustadz);
         $data = array(
             'nama' => $this->input->post('nama', true),
-            'deskripsi' => $this->input->post('link', true),
+            'deskripsi' =>$this->input->post('link', true),
             'telepon' => $this->input->post('telepon', true)
         );
         $cek = $this->ModelUstadz->update_akun($id_ustadz, $data);
@@ -229,7 +228,7 @@ class Account extends CI_Controller
         } else {
             // flash data kalo gagal
         }
-        // redirect to dashboard ustadz
+        redirect('ustadz', 'refresh');
     }
 
     public function hapus_akun_santri($id_santri)
