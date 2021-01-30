@@ -21,7 +21,7 @@
         </div>
         <!-- <div class="col-2"></div> -->
         <div class="col-md-6 col-12">
-            <a href="<?= base_url('report/read_quran') ?>" type="button" class="btn btn-light btn-iqra-online p-2"><img src="<?= base_url('assets/images/homepage/iqra-btn2.png') ?>" height="40px"> Iqra' Online</a>
+            <a href="<?= base_url('report/read_iqra') ?>" type="button" class="btn btn-light btn-iqra-online p-2"><img src="<?= base_url('assets/images/homepage/iqra-btn2.png') ?>" height="40px"> Iqra' Online</a>
         </div>
     </div>
 

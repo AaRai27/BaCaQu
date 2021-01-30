@@ -29,7 +29,15 @@ class ModelQuran extends CI_Model
         return $query;
     }
 
-    public function get_nama_surat($nomor)
+    public function get_all_iqra()
+    {;
+        $data_iqra = $this->db->get('iqra')->result_array();
+        return $data_iqra;
+    }
+    public function get_iqra($limit, $start)
     {
+        // $this->db->where('jilid', $jilid);
+        $data_iqra = $this->db->get('iqra', $limit, $start)->result_array();
+        return $data_iqra;
     }
 }
