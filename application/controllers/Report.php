@@ -11,8 +11,6 @@ class Report extends CI_Controller
         $this->load->library('pagination');
 
         //load the department_model
-        $this->load->model('ModelLaporan');
-        $this->load->model('ModelSantri');
         $this->load->model('ModelQuran');
     }
 

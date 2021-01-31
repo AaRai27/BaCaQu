@@ -6,9 +6,7 @@ class Santri extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('ModelLaporan');
         $this->load->model('ModelSantri');
-        $this->load->model('ModelUstadz');
     }
 
     public function index() {
@@ -18,10 +16,10 @@ class Santri extends CI_Controller
         $data['laporan'] = $this->ModelLaporan->get_laporan_santri($this->session->userdata('id'));
 
         $this->load->view('templates/header-dashboard');
-        $this->load->view('dashboardSantri', $data);
+        $this->load->view('dashboardSantri',$data);
         $this->load->view('templates/footer');
     }
-
+  
     public function set_santri()
     {
         $data_santri = array(
@@ -41,3 +39,4 @@ class Santri extends CI_Controller
         redirect('santri', 'refresh');
     }
 }
+

@@ -21,13 +21,13 @@
         function get_laporan_santri($id_santri)
         {
             $this->db->where('id_santri', $id_santri);
-            return $this->db->get('laporan')->result_array();
+            return $this->db->get('laporan')->row_array();
         }
 
         function get_laporan_ustadz($id_ustadz)
         {
             $this->db->where('id_ustadz', $id_ustadz);
-            return $this->db->get('laporan')->result_array();
+            return $this->db->get('laporan')->row_array();
         }
 
         function update_laporan($id_laporan, $data)
