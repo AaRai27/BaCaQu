@@ -102,7 +102,6 @@ class Report extends CI_Controller
         }
         redirect('ustadz');
     }
-
     public function read_iqra()
     {
         // $data['iqra'] = $this->ModelQuran->get_all_iqra();
