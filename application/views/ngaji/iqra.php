@@ -23,7 +23,7 @@
 
   <div id="imgIqro" class="d-flex justify-content-center">
     <?php foreach ($data_iqra as $i) : ?>
-      <img src="<?= base_url('assets/images/iqro/bagian' . $i['jilid']) . '/' . $i['halaman'] ?>" class="img-fluid" style="width: 60%;">
+      <img src="<?= base_url('assets/images/iqro/bagian' . $this->uri->segment(3)) . '/' . $i['halaman'] ?>" class="img-fluid" style="width: 60%;">
     <?php endforeach; ?>
   </div>
   <div class="container">

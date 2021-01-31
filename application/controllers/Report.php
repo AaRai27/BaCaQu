@@ -112,11 +112,12 @@ class Report extends CI_Controller
 
     public function view_iqra($jilid)
     {
-        $query = $this->db->query("SELECT halaman FROM iqra WHERE jilid=" . $this->uri->segment(3) . ";");
+        // $query = $this->db->query("SELECT halaman FROM iqra WHERE jilid=" . $this->uri->segment(3) . ";");
+        $query = $this->db->get_where('iqra', array('jilid' => $jilid))->result_array();
         // $total = 
 
         $config['base_url'] = base_url('report/view_iqra/' . $jilid); //site url
-        $config['total_rows'] = $query->num_rows();; //$this->db->count_all('produk') //total row
+        $config['total_rows'] = count($query); //$this->db->count_all('produk') //total row
         $config['per_page'] = 1;  //show record per halaman
         $config["uri_segment"] = 4;  // uri parameter
         // $choice = $config["total_rows"] / $config["per_page"];
