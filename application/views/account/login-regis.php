@@ -4,7 +4,7 @@
             <!-- <img src="<?= base_url('assets/images/homepage/bocah2.png') ?>" width="460px"> -->
             <h1 class="text-center" style="font-size: 60px;font-weight: bold;">BacaQu</h1>
         </div>
-        <div class="col-md-4 col-12" style="height: 100vh;background-color: rgba(255, 255, 255, 0.9);;padding-top: 30vh;">
+        <div class="col-md-4 col-12" style="height: 100vh;padding-top: 30vh; background-image: url(<?= base_url('assets/images/pattern9.jpg')?>); background-repeat: repeat;">
             <?= $this->session->flashdata('register'); ?>
             <div class="link-login-regis text-center" style="position: absolute;margin-top: -10vw;right: 9.5vw;">
                 <a style="font-size: 20px;" href="#" class="badge badge-light text-primary mr-2 to-signin"><b>Sign In</b> &ThickSpace;</a>
@@ -32,7 +32,8 @@
             <!-- <img src="<?= base_url('assets/images/homepage/bocah2.png') ?>" width="460px"> -->
             <h1 class="text-center" style="font-size: 60px;font-weight: bold;">BacaQu</h1>
         </div>
-        <div class="col-md-4 col-12" style="height: 100vh;background-color: rgba(255, 255, 255, 0.9);;padding-top: 30vh;">
+        <div class="col-md-4 col-12" style="height: 100vh;padding-top: 30vh; background-image: url(<?= base_url('assets/images/pattern9.jpg')?>); background-repeat: repeat;">
+        <!-- <div class="col-md-4 col-12" style="height: 100vh;background-color: rgba(255, 255, 255, 0.9);;padding-top: 30vh;"> -->
             <div class="link-login-regis text-center" style="position: absolute;margin-top: -10vw;right: 9.5vw;">
                 <a style="font-size: 20px;" href="#" class="badge badge-light text-primary mr-2 to-signin"><b>Sign In</b> &ThickSpace;</a>
                 <a style="font-size: 20px;" href="#" class="badge badge-light text-success to-signup"> <b>Sign Up</b></a>

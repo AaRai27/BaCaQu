@@ -13,7 +13,7 @@ class Santri extends CI_Controller
 
     public function index() {
         $data['user'] = $this->ModelSantri->get_akun_id($this->session->userdata('id'));
-        $tmp = $data['user']
+        $tmp = $data['user'];
         $data['ustadz'] = $this->ModelUstadz->get_akun_id($tmp['id_ustadz']);
         $data['laporan'] = $this->ModelLaporan->get_laporan_santri($this->session->userdata('id'));
 
@@ -25,8 +25,8 @@ class Santri extends CI_Controller
     public function set_santri()
     {
         $data_santri = array(
-            'id_santri' => $this->input->post('id', true),
-            'id_ustadz' => 'empty';
+            'id_santri' => $this->session->id,
+            'id_ustadz' => 'empty',
             'nama' => $this->input->post('nama', true),
             'level' => 1,
             'telepon' => $this->input->post('telepon', true)

@@ -29,7 +29,11 @@
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </div>
                 </div>
-                <a class="btn btn-light btn-sign-up ml-auto" href="<?= base_url('account') ?>" type="button">Sign In / Sign Up </a>
+                <?php if ($this->session->userdata('username')) { ?>
+                    <a class="btn btn-light btn-sign-in" href="<?= base_url('account/logout') ?>" type="button">Sign out</a>
+                <?php } else { ?>
+                    <a class="btn btn-light btn-sign-up ml-auto" href="<?= base_url('account') ?>" type="button">Sign In / Sign Up </a>
+                <?php } ?>
             </div>
         </div>
     </nav>

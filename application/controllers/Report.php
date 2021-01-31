@@ -81,15 +81,16 @@ class Report extends CI_Controller
     }
 
     public function buat_laporan() {
-        $nama = $this->input->post('nama', true);
-        $row = $this->ModelSantri->get_akun_nama($nama);
-        $id_santri = $row['id_santri'];
+        // $nama = $this->input->post('nama', true);
+        // $row = $this->ModelSantri->get_akun_nama($nama);
+        // $id_santri = $row['id_santri'];
+        $dibaca = $this->input->post('part1',true).' - '.$this->input->post('part2', true);
         $data = array(
-            'id_ustadz' => $this->input->post('id_ustadz', true),
-            'id_santri' => $id_santri,
-            'hari_tanggal' => $this->input->post('hari_tanggal', true),
-            'dibaca' => $this->input->post('dibaca', true),
-            'keterangan' => $this->input->post('keterangan', true);
+            'id_ustadz' => $this->session->id,
+            'id_santri' => $this->input->post('id', true),
+            'hari_tanggal' => htmlspecialchars($this->input->post('tanggal', true)),
+            'dibaca' => $dibaca,
+            'keterangan' => $this->input->post('keterangan', true),
             'catatan' => $this->input->post('catatan', true)
         );
         $cek = $this->ModelLaporan->buat_laporan($data);
@@ -123,8 +124,8 @@ class Report extends CI_Controller
 
         $config['first_link']       = 'First';
         $config['last_link']        = 'Last';
-        $config['next_link']        = '<div class="col"><a onclick="back()" href=""><img src="' . base_url('assets/images/arrow.svg') . '" width="15px" alt=""></a></div>';
-        $config['prev_link']        = '<div class="col"><a onclick="back()" href=""><img src="' . base_url('assets/images/arrow.svg') . '" style="transform:rotate(180deg);" width="15px" alt=""></a></div>';
+        $config['next_link']        = '<img src="' . base_url('assets/images/arrow.svg') . '" width="15px" alt="">';
+        $config['prev_link']        = '<img src="' . base_url('assets/images/arrow.svg') . '" style="transform:rotate(180deg);" width="15px" alt="">';
         $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
         $config['full_tag_close']   = '</ul></nav></div>';
         $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
@@ -153,8 +154,6 @@ class Report extends CI_Controller
         $this->load->view('ngaji/iqra', $data);
         $this->load->view('templates/footer');
     }
-
-
 
     public function edit_laporan($id_laporan)
     {

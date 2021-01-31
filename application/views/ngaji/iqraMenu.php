@@ -19,8 +19,8 @@
 
 <div class="container rounded-lg mt-5 mb-5 pt-5 pb-5 shadow" " style=" background-color: white;">
     <div>
-        <a href="">
-            <img class="ml-4" src="../../assets/images/arrow.svg" style="transform:rotate(180deg);" width="3%" alt="">
+        <a href="<?= base_url() ?>">
+            <img class="ml-4" src="<?= base_url('assets/images/arrow.svg') ?>" style="transform:rotate(180deg);" width="3%" alt="">
         </a>
         <h2 class="text-center">Pilih Bagian Iqra'</h2>
     </div>
