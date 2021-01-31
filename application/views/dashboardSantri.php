@@ -9,16 +9,69 @@
 
     <!-- ! Two Main Button -->
     <div class="container">
-      <div class="row">
-        <div class="col-md mt-2">
-          <a type="button" class="btn btn-primary btn-lg btn-block">Al-Qur'an Online</a>
+            <div class="row">
+                <div class="col-md mt-2">
+                    <a href="<?= base_url('report/read_quran/1') ?>" type="button" class="btn btn-primary btn-lg btn-block">Al-Qur'an Online</a>
+                </div>
+                <div class="col-md mt-2">
+                    <a href="<?= base_url('report/read_iqra') ?>" type="button" class="btn btn-primary btn-lg btn-block">Iqra' Online</a>
+                </div>
+            </div>
         </div>
-        <div class="col-md mt-2">
-          <a type="button" class="btn btn-primary btn-lg btn-block">Iqra' Online</a>
-        </div>
-      </div>
-    </div>
 
+    <?php if (is_null($user)): ?>
+    <!-- ! Perintah Isi Profile -->
+<div class="container rounded-lg container mt-5 mb-5 shadow" style="background-color: white;">
+    <div class="p-3">
+        <h1 class="text-center">Perhatian !</h1>
+        <div class="text-center">
+            <img src="<?= base_url('assets/images/resume.png') ?>" class="ml-5 mt-3 mb-3" style="height: 20vh;" alt="">
+        </div>
+        <h5 class="text-center mb-3 pl-5 pr-5">Sebelum mengakses fitur lengkap kami harap melengkapi profile anda
+            terlebih dahulu dengan klik button isi profile dibawah ini</h5>
+        <div class="text-center ">
+            <a type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#isiProfileModal">Isi
+                Profile</a>
+        </div>
+    </div>
+</div>
+
+<!-- ! Modal isi Profile -->
+<div class="modal fade" id="isiProfileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Isi Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="<?= base_url('santri/set_santri') ?>">
+                    <div class="form-group">
+                        <label>Nama</label>
+                        <input class="form-control" name="nama">
+                    </div>
+                    <!-- <div class="form-group">
+                        <label>Level</label>
+                        <input class="form-control" name="link">
+                    </div> -->
+                    <div class="form-group">
+                        <label>Nomor Telepon</label>
+                        <input class="form-control" name="telepon">
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <?php else : ?>
+    
     <!-- ! Profile -->
     <div class="container rounded-lg container mt-5 mb-5 shadow" style="background-color: white;">
       <h3 class="pt-3 pb-2">Profile</h3>
@@ -28,7 +81,7 @@
         </div>
         <div class="card-block pl-2">
           <h4 class="card-title">Nama : <?= $user['nama'] ?></h4>
-          <p>Username : <?= $this->session->id ?></p>
+          <p>Username : <?= $this->session->username ?></p>
           <p>Level : <?= $user['level'] ?></p>
           <p>Nomor Telepon : <?= $user['telepon'] ?></p>
         </div>
@@ -61,24 +114,24 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form method="POST" action="<?= base_url('account/update_akun_santri/').$this->session->id ?>">
               <div class="form-group">
                 <label>Nama</label>
-                <input class="form-control">
+                <input class="form-control" name="nama">
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label>Username</label>
                 <input class="form-control">
-              </div>
+              </div> -->
               <div class="form-group">
                 <label>Nomor Telepon</label>
-                <input class="form-control">
+                <input class="form-control" name="telepon">
               </div>
-            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
             <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
           </div>
         </div>
       </div>
@@ -168,3 +221,5 @@
     </div>
   </div>
   <?php } ?>
+
+  <?php endif ?>

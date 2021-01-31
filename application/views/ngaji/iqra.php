@@ -19,7 +19,7 @@
   <a href="">
     <img class="ml-4" src="<?= base_url('assets/images/arrow.svg') ?>" style="transform:rotate(180deg);" width="3%" alt="">
   </a>
-  <h3 class="text-center mb-5">Bagian 1</h3>
+  <h3 class="text-center mb-5">Bagian <?= $this->uri->segment(3) ?></h3>
 
   <div id="imgIqro" class="d-flex justify-content-center">
     <?php foreach ($data_iqra as $i) : ?>

@@ -6,6 +6,7 @@ class Ustadz extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->model('ModelLaporan');
         $this->load->model('ModelSantri');
         $this->load->model('ModelUstadz');
     }
@@ -16,19 +17,15 @@ class Ustadz extends CI_Controller
         $data['santri'] = $this->ModelSantri->get_all_by_ustadz($this->session->userdata('id'));
         $data['laporan'] = $this->ModelLaporan->get_laporan_ustadz($this->session->userdata('id'));
 
-        if ($data['user']) {
             $this->load->view('templates/header-dashboard');
-            $this->load->view('dashboardUstad');
+            $this->load->view('dashboardUstad', $data);
             $this->load->view('templates/footer');
-        } else {
-            redirect('account');
-        }
     }
 
     public function set_ustadz()
     {
         $data_ustadz = array(
-            'id_ustadz' => $this->input->post('id', true),
+            'id_ustadz' => $this->session->id,
             'nama' => $this->input->post('nama', true),
             'deskripsi' => $this->input->post('link', true),
             'telepon' => $this->input->post('telepon', true)
@@ -40,17 +37,18 @@ class Ustadz extends CI_Controller
         } else {
             $this->session->set_flashdata('setting_profil', 'gagal');
         }
-        redirect('ustadz');
+        redirect('ustadz', 'refresh');
     }
 
-    public function claim_santri($id_santri)
+    public function claim_santri()
     {
+        $id_santri = $this->input->post('id', true);
         $data = array('id_ustadz' => $this->session->userdata('id'));
         $cek = $this->ModelSantri->update_akun($id_santri, $data);
         if ($cek) {
-            $this->session->set_flashdata('claim', 'sukses');
+            // $this->session->set_flashdata('claim', 'sukses');
         } else {
-            $this->session->set_flashdata('claim', 'gagal');
+            // $this->session->set_flashdata('claim', 'gagal');
         }
         redirect('ustadz', 'refresh');
     }
